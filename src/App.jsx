@@ -137,7 +137,7 @@ export default function Portfolio() {
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <h1 className="text-3xl font-semibold tracking-tight">Athesh Gnanakaneshan</h1>
-              <p className="mt-1 text-slate-600">University of Waterloo · Analog / Mixed‑Signal IC — building a folded‑cascode OTA in GF180 (gm/ID)</p>
+              <p className="mt-1 text-slate-600">University of Waterloo · Analog / Mixed‑Signal IC — building a folded‑cascode OTA in GF180</p>
             </div>
             <div className="flex items-center gap-3">
               <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"
@@ -153,9 +153,6 @@ export default function Portfolio() {
 
           <div className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
             <span className="rounded-full bg-slate-100 px-3 py-1">Open to internships</span>
-            <a href={links.resume} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1 rounded-full bg-indigo-50 px-3 py-1 font-medium text-indigo-700 hover:bg-indigo-100">
-              View 1‑page resume <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </a>
           </div>
         </header>
       </section>
