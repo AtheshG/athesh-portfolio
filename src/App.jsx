@@ -1,11 +1,14 @@
 import { Github, Linkedin, Mail, ExternalLink, ChevronRight } from "lucide-react";
 
 export default function Portfolio() {
+
+
+
   const links = {
     linkedin: "https://www.linkedin.com/in/athesh/",
     github: "https://github.com/AtheshG",
     email: "mailto:agnanaka@uwaterloo.ca",
-    otaRepo: "https://github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA",
+    otaRepo: "https://github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA/blob/main/docs/proposal/proposal.md",
     resume: "#" // TODO: drop a public PDF link here (e.g., GitHub Pages, Google Drive)
   };
 
@@ -16,13 +19,15 @@ export default function Portfolio() {
     },
     {
       title: "EDA / Tools",
-      items: ["GF180", "Cadence Virtuoso/Spectre", "Xschem", "Ngspice", "LTspice", "Altium"]
+      items: ["GF180", "Xschem", "Ngspice", "LTspice", "Altium"]
     },
     {
       title: "Programming",
       items: ["C/C++", "Python", "MATLAB", "VHDL"]
     }
   ];
+
+
 
   const projects = [
     {
@@ -40,7 +45,9 @@ export default function Portfolio() {
         // { label: "Schematic", href: "https://.../mppt-schematic.png", icon: <ExternalLink className=\"h-4 w-4\" aria-hidden /> },
         // { label: "3D", href: "https://.../mppt-3d.png", icon: <ExternalLink className=\"h-4 w-4\" aria-hidden /> },
       ],
-      tags: ["Altium", "MPPT", "Buck", "INA230"]
+      tags: ["Altium", "MPPT", "Buck", "INA230"],
+      image: "/boards/mppt-breakout.png.png",
+      imageAlt: "MPPT breakout board render"
     },
 
     {
@@ -53,12 +60,15 @@ export default function Portfolio() {
         "Implemented P‑MOSFET reverse‑polarity protection + TVS; set LED current and added accessible test points",
         "Coordinated connector pinout and power‑up sequencing; supported bench bring‑up and revisions"
       ],
+  
       links: [
         // TODO: host images for OBC schematic/3D and drop URLs below
         // { label: "Buck Schematic", href: "https://.../obc-buck.png", icon: <ExternalLink className="h-4 w-4" aria-hidden /> },
         // { label: "3D", href: "https://.../obc-3d.png", icon: <ExternalLink className="h-4 w-4" aria-hidden /> },
       ],
-      tags: ["Altium", "OBC", "Buck", "Power", "RPP"]
+      tags: ["Altium", "OBC", "Buck", "Power", "RPP"],
+      image: "/boards/obc-rev3.png.png",
+      imageAlt: "OBC board render"
     },
 
     {
@@ -129,6 +139,11 @@ export default function Portfolio() {
     }
   ];
 
+  function withBase(path) {
+    const base = import.meta.env.BASE_URL || "/";
+    return `${base.replace(/\/$/, "")}${path}`;
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
       {/* NAV / HERO */}
@@ -148,6 +163,12 @@ export default function Portfolio() {
                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium hover:shadow">
                 <Github className="h-4 w-4" aria-hidden /> GitHub
               </a>
+              {links.resume && links.resume !== "#" && (
+                <a href={links.resume} target="_blank" rel="noreferrer" aria-label="Resume"
+                   className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-blue-600 px-3 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                  <ChevronRight className="h-4 w-4" aria-hidden /> Resume
+                </a>
+              )}
             </div>
           </div>
 
@@ -163,6 +184,11 @@ export default function Portfolio() {
         <div className="grid gap-4 md:grid-cols-2">
           {projects.map((p) => (
             <article key={p.title} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              {p.image && (
+                <div className="mb-3 overflow-hidden rounded-lg border border-slate-200 bg-white">
+                  <img src={withBase(p.image)} alt={p.imageAlt || p.title} className="w-full h-auto object-contain" />
+                </div>
+              )}
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h3 className="text-base font-semibold">{p.title}</h3>
