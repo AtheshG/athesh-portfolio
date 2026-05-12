@@ -1,6 +1,6 @@
 %-------------------------
-% Resume in LaTeX — Analog/RFIC‑focused
-% Author: Athesh Gnanakaneshan (edited with ChatGPT)
+% Resume in LaTeX — Hardware / Board Design
+% Author: Athesh Gnanakaneshan
 % Template base: sb2nov/resume (MIT)
 %-------------------------
 
@@ -24,115 +24,164 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+
+\addtolength{\oddsidemargin}{-0.52in}
+\addtolength{\evensidemargin}{-0.52in}
+\addtolength{\textwidth}{1.04in}
+\addtolength{\topmargin}{-0.62in}
+\addtolength{\textheight}{1.18in}
+
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
-\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
 \pdfgentounicode=1
 
 % ---------- CUSTOM CMDS ----------
-\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
-\newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}\textbf{#1} & #2 \\ \textit{\small#3} & \textit{\small #4} \\\end{tabular*}\vspace{-7pt}}
-\newcommand{\resumeProjectHeading}[2]{\item\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}\small#1 & #2 \\\end{tabular*}\vspace{-7pt}}
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]} 
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-3pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.13in, label={}]
+}
+
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
+}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=0.15in]
+}
+
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}\vspace{-6pt}
+}
 
 % ---------- DOCUMENT ----------
 \begin{document}
 
-% HEADER
+% ---------- HEADER ----------
 \begin{center}
-    {\Huge \scshape Athesh Gnanakaneshan}\\
-    \small Waterloo, ON $\vert$ 647-550-9172 $\vert$ \href{mailto:agnanaka@uwaterloo.ca}{\underline{agnanaka@uwaterloo.ca}} $\vert$ 
-    \href{https://www.linkedin.com/in/athesh/}{\underline{linkedin.com/in/athesh}} $\vert$ 
+    {\Huge \scshape Athesh Gnanakaneshan} \\
+    \vspace{1pt}
+    \small 647-550-9172 $\vert$
+    \href{mailto:agnanaka@uwaterloo.ca}{\underline{agnanaka@uwaterloo.ca}} $\vert$
+    \href{https://www.linkedin.com/in/athesh/}{\underline{linkedin.com/in/athesh}} $\vert$
     \href{https://atheshg.github.io/athesh-portfolio/}{\underline{Portfolio}}
 \end{center}
 
-% EDUCATION
+% ---------- EDUCATION ----------
 \section{Education}
 \resumeSubHeadingListStart
-  \resumeSubheading{University of Waterloo}{Sep 2022 -- May 2027 (expected)}{BASc Candidate, Electrical Engineering}{Waterloo, ON}
-  \resumeItemListStart
-    \resumeItem{Focus: Analog/IC design, signals \\ (op-amps/OTAs, biasing, stability, gm/ID sizing, device physics)}
-    % Uncomment and list a few courses you have completed
-    % \resumeItem{Selected coursework: Analog IC Design, Mixed-Signal Circuits, CMOS Devices, EM Fields, Signals \\ & Systems, Control Systems}
-  \resumeItemListEnd
+  \resumeSubheading
+    {University of Waterloo}
+    {Sep 2022 -- May 2027}
+    {BASc Electrical Engineering $\vert$ Coursework: Analog Circuits, Digital Systems, RF/Microwave, DSP}
+    {Waterloo, ON}
 \resumeSubHeadingListEnd
 
-% SKILLS (analog-forward, ATS-friendly keywords)
+% ---------- TECHNICAL SKILLS ----------
 \section{Technical Skills}
 \resumeItemListStart
-  \resumeItem{\textbf{EDA}: Xschem, Ngspice, LTspice, Altium Designer}
-  \resumeItem{\textbf{Programming}: C/C++, Python, MATLAB, VHDL}
-  \resumeItem{\textbf{Test/Measurement}: oscilloscopes, multimeters; hipot/IR testing; spectral analysis of lab data}
-  \resumeItem{\textbf{Protocols/Platforms}: Modbus (RTU/TCP), VxWorks, MATLAB App Designer, VS Code}
+  \resumeItem{\textbf{PCB \& Hardware Design}: Altium Designer, OrCAD, Cadence Allegro, schematic capture, 4--10 layer PCB layout, stackup planning, buck/boost converters, LDOs, CRPS power systems, PMBus, EMI mitigation}
+  \resumeItem{\textbf{Validation \& Simulation}: Board bring-up, power sequencing, bench validation, oscilloscopes, VNAs, spectrum analyzers, power supplies, soldering/rework, HyperLynx SI/PI/thermal, LTspice, Ngspice}
+  \resumeItem{\textbf{Programming \& Interfaces}: Python, C/C++, MATLAB; I\textsuperscript{2}C, SPI, UART, PMBus, Modbus RTU/TCP, 1GbE}
 \resumeItemListEnd
 
-% PROJECTS FIRST (most relevant for analog internships)
-\section{Projects}
-\resumeSubHeadingListStart
-  \resumeProjectHeading{\textbf{Reconfigurable Amplifier IC (MOSBIUS)} ~\href{https://github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA/blob/main/docs/proposal/proposal.md}{\faGithub} $\vert$ GF180, Xschem/Ngspice}{May 2025 -- Aug 2025}
-  \resumeItemListStart
-    \resumeItem{Designed a \textbf{folded-cascode OTA} using \textbf{gm/ID} methodology (target: $g_m/I_D\!\approx\!10$, $V_{OV}\!\approx\!0.2\,$V) and open-loop GBW $\approx$ 500 kHz for a specified off-chip load.}
-    \resumeItem{Contributed to a \textbf{reconfigurable amplifier} in the \textbf{GF180} PDK; performed AC/small-signal sims and design reviews.}
-    \resumeItem{Collaborated in the \textbf{IEEE SSCS MOSBIUS} Chipathon led by Prof. Peter Kinget; coordinated interfaces and test plans.}
-    % Optional: add PM, gain, noise if you have verified values    \resumeItem{\textbf{Project repo}: \href{https://github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA}{\underline{github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA}}}
-  
-  \resumeItemListEnd
-
-  \resumeProjectHeading{\textbf{EMI Shielding Simulator} $\vert$ MATLAB (App Designer)}{Oct 2023 -- Dec 2023}
-  \resumeItemListStart
-    \resumeItem{Built a GUI app to model \textbf{shielding effectiveness vs. frequency} from material properties & source distance.}
-    \resumeItem{Implemented windowing, digital filtering, and spectrum analysis to study charger current spikes; reviewed $\sim$25 papers to inform models.}
-    \resumeItem{Added aperture-loss estimation and exportable plots for design reports.}
-  \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-% EXPERIENCE
+% ---------- EXPERIENCE ----------
 \section{Experience}
 \resumeSubHeadingListStart
-  \resumeSubheading{Curtiss-Wright (Indal Technologies)}{Jan 2025 -- Apr 2025}{Electrical Engineering Intern}{Mississauga, ON}
+
+  \resumeSubheading
+    {Nexthop AI}
+    {Jan 2026 -- Apr 2026}
+    {Hardware Engineering Intern}
+    {Santa Clara, CA}
   \resumeItemListStart
-    \resumeItem{Developed an \textbf{HMI in C/C++} and implemented \textbf{Modbus} comms enabling bidirectional register R/W between HMI and the system processing controller.}
-    \resumeItem{Created \textbf{VxWorks}-based test software to \textbf{automate validation} for $>$100 system processing units (SPUs).}
-    \resumeItem{Authored hardware/software \textbf{test procedures} to validate production boards (including hipot \& isolation resistance checks).}
+    \resumeItem{Designed a 25\,kW rack-mount power distribution chassis for manufacturing test, enabling power delivery, sequencing, and power-consumption monitoring across 5 network switches; 30 units deployed to date}
+    \resumeItem{Owned schematic capture and 10-layer PCB layout for chassis controller board integrating 5 CRPS PSUs, Raspberry Pi CM5, 1GbE, management interfaces, PMBus telemetry, and switch power-control circuitry}
+    \resumeItem{Built Python manufacturing interface to monitor PMBus telemetry, log PSU/switch power data, and independently power-cycle each network switch during production test}
+    \resumeItem{Performed board bring-up and validation across chassis controller and 2RU switch LED boards, debugging PMBus, control, connectivity, and system-integration issues using bench equipment}
+    \resumeItem{Ran HyperLynx thermal, SI, and PI simulations for chassis hardware, guiding layout changes to reduce thermal risk, improve power delivery, and identify signal-integrity issues before fabrication}
   \resumeItemListEnd
 
-  \resumeSubheading{UW Orbital Design Team}{May 2024 -- Apr 2025}{Hardware Developer}{Waterloo, ON}
+  \resumeSubheading
+    {UW Orbital Design Team}
+    {May 2024 -- Apr 2025}
+    {Hardware Developer}
+    {Waterloo, ON}
   \resumeItemListStart
-    \resumeItem{Reviewed designs for space-grade boards (on-board computer, MPPT); improved \textbf{layout/EMI} via differential pairs, placement, and SI practices.}
-    \resumeItem{Integrated a \textbf{watchdog timer} in the OBC schematic to enhance fault tolerance; contributed to PC/104 header integration and reviews.}
+    \resumeItem{Designed 6-layer FlatSat integration board with 70+ test points connecting OBC, MPPT, comms, and ADCS subsystems, reducing full-system validation time by 50\% through accessible debug interfaces}
+    \resumeItem{Led design reviews for 6 PCBs, driving EMI, SI/PI, connector placement, routing, and layer-stackup improvements across satellite power and subsystem integration boards}
   \resumeItemListEnd
 
-  \resumeSubheading{Bombardier Recreational Products (BRP)}{Sep 2023 -- Dec 2023}{EV Product Development Intern}{Valcourt, QC}
+  \resumeSubheading
+    {Curtiss-Wright -- Indal Technologies}
+    {Jan 2025 -- Apr 2025}
+    {Electrical Engineering Intern}
+    {Mississauga, ON}
   \resumeItemListStart
-    \resumeItem{Built a \textbf{MATLAB} App Designer tool for \textbf{EMI shielding simulation} to aid EV battery design studies.}
-    \resumeItem{Processed lab data with \textbf{Python/MATLAB} (filters, windowing, spectra) to identify charger current-spike frequencies.}
-    \resumeItem{Performed \textbf{hipot \& isolation-resistance} tests on e-snowmobile components; simulated AC inrush filter behavior in \textbf{LTspice}.}
+    \resumeItem{Developed embedded C/C++ HMI firmware for aircraft securing controllers using Modbus RTU/TCP, enabling bidirectional register access and real-time system monitoring}
+    \resumeItem{Developed automated VxWorks validation suite with 12 test cases for 100+ System Processing Units, reducing validation time by 2 hours per unit and identifying a watchdog-timer schematic error before production release}
   \resumeItemListEnd
 
-  \resumeSubheading{Taymer International}{Feb 2023 -- Apr 2023}{Machine Vision Systems Designer}{Markham, ON}
+  \resumeSubheading
+    {Bombardier Recreational Products}
+    {Sep 2023 -- Dec 2023}
+    {EV Product Development Intern}
+    {Valcourt, QC}
   \resumeItemListStart
-    \resumeItem{Optimized optics/lighting to improve defect-detection accuracy; assisted \textbf{OpenCV/C++} algorithm development.}
+    \resumeItem{Built MATLAB EMI shielding analysis tool for EV battery enclosures and characterized charger switching noise from DC--1\,GHz, identifying emissions that led to ferrite bead integration recommendation}
   \resumeItemListEnd
+
 \resumeSubHeadingListEnd
 
-% (OPTIONAL) ADD OTHERS IF AVAILABLE
-% \section{Awards \& Activities}
-% \resumeItemListStart
-%   \resumeItem{IEEE SSCS student member; Analog IC design study group.}
-%   \resumeItem{Hackathons/contests: ...}
-% \resumeItemListEnd
+% ---------- PROJECTS ----------
+\section{Technical Projects}
+\resumeSubHeadingListStart
 
-% FOOTER NOTE FOR YOURSELF (remove before sending)
-% ACTIONS: add concrete spec results for OTA (gain/PM/noise/PSRR), include GitHub links if public, and list 4–6 relevant courses.
+  \resumeProjectHeading
+    {\textbf{Satellite OBC Power Module} $\vert$ Altium Designer, LM26420, 6-layer PCB}
+    {Oct 2024 -- Mar 2025}
+  \resumeItemListStart
+    \resumeItem{Designed dual synchronous buck power module generating 3.3\,V/1\,A and 1.2\,V/500\,mA rails with P-FET reverse-polarity protection, TVS clamping, decoupling placement, and inductor layout per datasheet EMI/thermal guidance}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{MPPT Solar Charge Controller} $\vert$ Altium Designer, INA230, TPS63070, 4-layer PCB}
+    {Mar 2025 -- Apr 2025}
+  \resumeItemListStart
+    \resumeItem{Designed 5--18\,V solar-input PCB with buck converter, Kelvin-sensed INA230 current monitoring, and I\textsuperscript{2}C interface; minimized switching loop area and isolated noisy power paths from analog sensing circuitry}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Folded-Cascode OTA IC} \quad \href{https://github.com/ushan-fernando/SSCS-Chipathon-2025-Team-FPTA}{\faGithub} $\vert$ Xschem/Ngspice, GF180}
+    {June 2025 -- Aug 2025}
+  \resumeItemListStart
+    \resumeItem{Designed 180\,nm CMOS OTA achieving 70\,dB DC gain, 450\,kHz GBW, and 65$^\circ$ phase margin using $g_m/I_D$ methodology}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 \end{document}
